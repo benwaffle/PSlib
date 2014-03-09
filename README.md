@@ -6,7 +6,7 @@ A Java library for interfacing with PowerSchool.
 Example
 ----------
 ```Java
-PSLib api = new PSLib("https://ps01.bergen.org");
+PSlib api = new PSlib("https://ps01.bergen.org");
 api.login("username","password");
 Grade[] grades = api.getCourses()[0].getGrades();
 
