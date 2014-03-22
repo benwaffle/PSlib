@@ -1,0 +1,45 @@
+PowerSchool API notes
+
+QueryIncludeListVO - sent with request to specify which data wanted in response
+	int QIL_INCLUDE_ALL = 1; // get all data, obviously slower
+
+	int QIL_ACTIVITIES = 105;
+	int QIL_ASSIGNMENTS = 25;
+	int QIL_ASSIGNMENTS_CATEGORIES = 20;
+	int QIL_ASSIGNMENT_SCORES = 30;
+	int QIL_ATTENDANCE = 65;
+	int QIL_ATTENDANCE_CODES = 55;
+	int QIL_BULLETINS = 40;
+	int QIL_CITIZEN_CODES = 60;
+	int QIL_CITIZEN_GRADES = 61;
+	int QIL_FEE_TRANSACTIONS = 75;
+	int QIL_FINAL_GRADES = 50;
+	int QIL_LUNCH_TRANSACTIONS = 80;
+	int QIL_NOTIFICATIONS = 95;
+	int QIL_NOT_IN_SESSION_DAYS = 110;
+	int QIL_REPORTING_TERMS = 45;
+	int QIL_SCHOOLS = 5;
+	int QIL_SECTIONS_AND_ENROLLEMNTS = 10;
+	int QIL_STANDARDS_GRADES = 35;
+	int QIL_STUDENT = 2;
+	int QIL_TEACHERS = 85;
+	
+
+StudentDataVO
+	- getAttendanceCodes(): attendance codes
+							(AE - absent excused; FT - field trip, etc)
+	- getPeriods(): with BCA, returns homeroom, mod1, mod2, mod3, etc
+	- getSchools(): gee, I wonder what this does...
+	- getSections(): list of course
+		getCourseCode(): (unique?) ID for a course; could replace classmatch
+		getDescription(): mostly null, sometimes actual description present
+		getExpression(): with BCA, mods for each course
+		getRoomName(): room number
+		getSchoolCourseTitle(): name of course
+		getTeacherID(): (unique?) ID of a teacher
+		getTermID(): ID for the term (getSections() can return 1-tri courses)
+	- getTerms()
+		getAbbrev(): "13-14" / "T1" / "T2" / "T3"
+		getTitle(): full name
+		getId(): numerical ID for term
+	- getYearId(): the current year
